@@ -7,6 +7,7 @@ def iniciar_aplicacao():
     janela.title("Diário Digital")
     janela.geometry("300x230")
     janela.resizable(False, False)
+    #janela.configure(bg="#FF0000")
 
     menu.criar_menu(janela)
 

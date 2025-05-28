@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import scrolledtext, simpledialog, messagebox
-from core.armazenamento import ler_anotacoes, buscar_por_palavra, excluir_anotacao, editar_anotacao
+from core.armazenamento import ler_anotacoes, buscar_por_palavra, excluir_anotacao, editar_anotacao, exportar_para_pdf
 
 # Janela principal de leitura busca edicao e exclusao
 def abrir_janela_leitura(pai):
@@ -21,6 +21,7 @@ def abrir_janela_leitura(pai):
             texto.config(state='disabled')
 
     tk.Button(frame, text="Buscar", command=buscar).pack(side=tk.LEFT, padx=5)
+    tk.Button(frame, text="Exportar PDF", command=lambda: exportar_para_pdf(texto)).pack(side=tk.LEFT, padx=5)
     tk.Button(frame, text="Editar Anotação", command=lambda: abrir_janela_edicao(janela)).pack(side=tk.LEFT, padx=5)
     tk.Button(frame, text="Excluir Anotação", command=lambda: abrir_janela_excluir(janela)).pack(side=tk.LEFT, padx=5)
 
@@ -134,3 +135,4 @@ def abrir_janela_excluir(pai):
             messagebox.showerror("Erro", "Digite um número válido para o índice.")
 
     tk.Button(janela, text="Excluir", command=confirmar_exclusao).pack(pady=10)
+
